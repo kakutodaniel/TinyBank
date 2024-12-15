@@ -7,9 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1B8EA080-78F3-4C24-A474-DB603E30AD77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{CCC69AEB-1BFC-4868-85E7-EF0966AFCF1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{CCC69AEB-1BFC-4868-85E7-EF0966AFCF1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{DC165470-C543-47D9-8666-673A1AA92B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{DC165470-C543-47D9-8666-673A1AA92B0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A4F3CEAC-BECB-47E5-87D6-43551CC56351}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+		..\TinyBank.postman_collection.json = ..\TinyBank.postman_collection.json
+		..\TinyBank.postman_environment.json = ..\TinyBank.postman_environment.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
