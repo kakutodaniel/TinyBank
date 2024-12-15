@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "6da7e6f2-8de0-4ffd-b03f-30f5e308b6b7",
+		"name": "TinyBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "950541"
+	},
+	"item": [
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"\r",
+							"pm.environment.set('userId_1', response[0].id)\r",
+							"pm.environment.set('userId_2', response[1].id)\r",
+							"pm.environment.set('accountId_1', response[0].account.id)\r",
+							"pm.environment.set('accountId_2', response[1].account.id)\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5219/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}/account/{{accountId_1}}/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}",
+						"account",
+						"{{accountId_1}}",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}/account/{{accountId_2}}/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}",
+						"account",
+						"{{accountId_2}}",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"daniel\",\r\n  \"document\": \"123\",\r\n  \"country\": \"PT\",\r\n  \"userType\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5219/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"fabiana\",\r\n  \"document\": \"555-111-666-777-44\",\r\n  \"country\": \"PT\",\r\n  \"userType\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5219/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make a deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "300",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}/account/{{accountId_1}}/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}",
+						"account",
+						"{{accountId_1}}",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make a withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "40",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}/account/{{accountId_1}}/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}",
+						"account",
+						"{{accountId_1}}",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make a transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destinationAccountId\": \"{{accountId_2}}\",\r\n  \"value\": 219\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_1}}/account/{{accountId_1}}/transfer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_1}}",
+						"account",
+						"{{accountId_1}}",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate User",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5219/user/{{userId_2}}/deactivate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5219",
+					"path": [
+						"user",
+						"{{userId_2}}",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
