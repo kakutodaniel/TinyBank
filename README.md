@@ -46,16 +46,16 @@ dotnet run
 3. Run _**Get All Users**_. This will copy **userId** and **accountId** values to environment variables (from both users)
 4. Now it's possible to run _**Make a deposit**_, _**Make a withdraw**_, _**Make a transfer**_, _**Get Account Transactions**_, _**Get Account Balance**_ and _**Deactivate User**_
 
-## Improvements
+## Assumptions
 In order to improve the application there are some implementations that should be done as follows:
 
-- **Lock Strategy**: We must implement a distributed lock strategy to ensure that only one transaction occurs at a time and that the balance remains correct. Reference for .Net https://github.com/samcook/RedLock.net
+- **Lock Strategy**: We must implement a distributed lock strategy to ensure that only one transaction occurs at a time and that the user balance remains correct. Reference for .Net https://github.com/samcook/RedLock.net
 
-- **Bearer Token**: Get information of the authenticated user from the token
+- **Bearer Token**: Get information of the authenticated user from the token (e.g. userId and accountId)
 
 - **API Version**: Add API versioning as a good practice, as the API will evolve
 
-- **Add Tests**: Tests are missing and are important to cover the application
+- **Add Tests**: Tests are missing and it's important to cover the whole application
 
 - **Round trips to database**: Reduce, since there are a few in the same request and we can improve performance
 
